@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <ImageView
+        android:id="@+id/image"
+        android:src="@drawable/ic_list"
+      android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_height="180dp"
+        android:layout_width="180dp"
+        />
+    <TextView
+       android:id="@+id/blank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image"
+
+        android:text="
+
+
+"
+        />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_below="@+id/blank"
+            android:text="菜名为：  "
+            />
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+android:layout_toRightOf="@+id/image"
+        android:text="价格为：  "
+        />
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+
+        android:text="请在下方输入备注：  "
+        />
+    <EditText
+        android:id="@+id/Beizhu"
+        android:layout_width="fill_parent"
+        android:layout_height="44.0dip"
+
+        android:gravity="center_vertical"
+       android:layout_below="@+id/tips"
+        android:maxLength="16"
+        android:maxLines="1"
+        android:textColor="#ff1d1d1d"
+        android:textColorHint="#ff666666"
+        android:textSize="16.0sp"
+
+        />
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3aadfd"
+        android:layout_alignParentBottom="true"
+
+        android:text="点菜"/>
+</RelativeLayout>
