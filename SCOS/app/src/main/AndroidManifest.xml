@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.source.code.activity">
+
+    <permission
+        android:name="scos.permission.ACCESSSCOS"
+        android:protectionLevel="dangerous" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- 允许程序监控一个将收到短信息，记录或处理 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:installLocation="internalOnly"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SCOSEntry">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainScreen"
+            android:permission="scos.permission.ACCESSSCOS">
+            <intent-filter>
+                <action android:name="scos.intent.action.SCOSMAIN" />
+
+                <category android:name="scos.intent.category.SCOSLAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="devdiv.intent.action.MainScreen" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginOrRegister" />
+        <activity
+            android:name=".FoodView"
+            android:label="点餐" />
+        <activity android:name=".FoodOrderView" />
+        <activity android:name=".FoodDetailed" />
+        <activity
+            android:name=".SCOSHelper"
+            android:permission="android.permission.CALL_PHONE" />
+
+        <service
+            android:name="es.source.code.service.ServerObserverService"
+            android:enabled="true"
+            android:exported="true"
+            android:process="es.source.code.activity" />
+        <service
+            android:name="es.source.code.service.UpdateService"
+            android:exported="false" />
+
+        <receiver
+            android:name="es.source.code.br.DeviceStartedListener"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter >
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+            <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <data android:scheme="file" >
+                </data>
+            </intent-filter>
+            <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="scos.intent.action.CLOSE_NOTIFICATION"/></intent-filter>>
+        </receiver>
+    </application>
+
+</manifest>
